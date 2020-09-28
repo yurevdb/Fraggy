@@ -14,16 +14,19 @@ client.on("message", async message => {
   // Filter out the prefix for the message
   const withoutPrefix = message.content.slice(prefix.length).trim();
 
+  // Split message data up
   const split = withoutPrefix.split(/ +/);
 
+  // Get the command and the arguments
   const command = split[0];
   const args = split.slice(1);
 
-  console.log(command)
+  // Switch on the command
   switch(command) {
+    // Used for creating a get a rank feature
     case "role":
-      const embed = new MessageEmbed()
-        .setTitle('Get your own role')
+      const embed = new Discord.MessageEmbed()
+        .setTitle('Get-a-rank')
         .setColor(0xff0000)
         .setDescription('React to the role you want to get!');
       message.channel.send(embed).then(answer => answer.react('760218905808863293'));
