@@ -25,10 +25,8 @@ client.on("message", async message => {
   switch(command) {
     // Used for creating a get a rank feature
     case "role":
-        const embed = new Discord.MessageEmbed()
-        /* .setTitle('Get-a-rank')
-        .setColor(0xff0000)
-        .setDescription('React to the role you want to get!'); */
+      let embed = new Discord.MessageEmbed()
+        .setDescription('760218905808863293');
       message.channel.send("Test").then(answer => answer.react('760218905808863293'));
     case "help":
       message.channel.send("You're on your own kid.");
