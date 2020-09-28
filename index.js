@@ -20,3 +20,5 @@ client.on("message", async message => {
   message.channel.send(args.join(" "));
 
 });
+
+client.login(process.env.token);
