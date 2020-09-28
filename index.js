@@ -14,7 +14,7 @@ client.on("message", async message => {
   // Filter out the prefix for the message
   const withoutPrefix = message.content.slice(prefix.length);
 
-  const split = withoutPrefix.split(/ +/);
+  const split = withoutPrefix.split(" ");
 
   const command = split[0];
   const args = split.slice(1);
@@ -22,7 +22,7 @@ client.on("message", async message => {
   console.log(command)
   switch(command) {
     case "role":
-      const embed = new MessageEmbed()
+      const embed = new Discord.MessageEmbed()
         .setTitle('Get your own role')
         .setColor(0xff0000)
         .setDescription('React to the role you want to get!');
