@@ -1,11 +1,11 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
 const prefix = "!frag"
 
 client.on("ready", () => {
-  console.log("Fraggy is here! We've got ${client.users.size} users, in ${client.channels.size} channels.");
+  console.log(`Fraggy is here! We've got ${client.users.size} users, in ${client.channels.size} channels.`);
 });
 
 client.on("message", async message => {
