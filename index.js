@@ -14,7 +14,7 @@ client.on("message", async message => {
   // Filter out the prefix for the message
   const withoutPrefix = message.content.slice(prefix.length);
 
-  const split = withoutPrefix.split(" ");
+  const split = withoutPrefix.split(/ +/).trim();
 
   const command = split[0];
   const args = split.slice(1);
