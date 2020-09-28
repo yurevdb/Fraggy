@@ -13,12 +13,9 @@ client.on("message", async message => {
 
   if(!message.content.startsWith(prefix)) return
 
-  const args = message.content.slice(0, prefix.length).trim().split(' ');
-  const command = args.shift().toLowerCase();
+  const withoutPrefix = message.content.slice(prefix.length);
 
-  message.channel.send(args.join(" ")).then(() => message.react('\:smile:'));
-  
-
+  message.channel.send(withoutPrefix).then(() => message.react('\:smile:'));
 });
 
 client.login(process.env.token);
