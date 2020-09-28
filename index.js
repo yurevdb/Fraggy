@@ -27,7 +27,7 @@ client.on("message", async message => {
     case "role":
       let embed = new Discord.MessageEmbed()
         .setDescription('760218905808863293');
-      message.channel.send("Test").then(answer => answer.react('760218905808863293'));
+      message.channel.send(embed).then(answer => answer.react('760218905808863293'));
       break;
     case "help":
       message.channel.send("You're on your own kid.");
