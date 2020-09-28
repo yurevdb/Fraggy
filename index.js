@@ -1,4 +1,12 @@
+
 const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.once('ready', () => {
+	console.log('Ready!');
+});
+
+/*const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
@@ -20,5 +28,5 @@ client.on("message", async message => {
   message.channel.send(args.join(" "));
 
 });
-
+*/
 client.login(process.env.token);
