@@ -15,7 +15,7 @@ client.on("message", async message => {
 
   const withoutPrefix = message.content.slice(prefix.length);
 
-  message.channel.send(withoutPrefix).then(() => message.react('\:smile:'));
+  message.channel.send(withoutPrefix).then(() => message.react('760218905808863293'));
 });
 
 client.login(process.env.token);
