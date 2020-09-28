@@ -19,6 +19,7 @@ client.on("message", async message => {
   const command = split[0];
   const args = split.slice(1);
 
+  console.log(command)
   switch(command) {
     case "role":
       const embed = new MessageEmbed()
@@ -26,6 +27,8 @@ client.on("message", async message => {
         .setColor(0xff0000)
         .setDescription('React to the role you want to get!');
       message.channel.send(embed).then(answer => answer.react('760218905808863293'));
+    default: 
+      message.channel.send(`Type ${prefix} help to see the availlable commands`);
   }
 });
 
