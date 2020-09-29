@@ -6,6 +6,7 @@ const prefix = "-f"
 
 // On startup
 client.on("ready", () => {
+  // Set activity of the bot
   client.user.setPresence({ activity: { name: '-f help', type: 'LISTENING' }, status: 'online' });
 });
 
@@ -34,7 +35,7 @@ client.on("message", async message => {
       CreateRoleMessage(message);
       break;
     case "help":
-      message.channel.send("You're on your own kid.");
+      message.channel.send(CreateMessage("Check out the wiki for any help.").setURL("https://github.com/yurevdb/Fraggy/wiki"));
       break;
     default: 
       message.channel.send(`Type "${prefix} help" to see the availlable commands`);
@@ -46,18 +47,25 @@ client.on("message", async message => {
 client.login(process.env.token);
 
 /***
+  Creates a fancy bot message
+*/
+const CreateMessage = text => {
+  let message = new Discord.MessageEmbed()
+    .setDescription(text)
+    .setColor(0xff0000);
+  return message;
+}
+
+/***
   Creates a message for any user to react to and give out a role.
 */
 const CreateRoleMessage = async (message) => {
-  // Create the embed message
-  let embed = new Discord.MessageEmbed()
-    .setDescription('React to this message to get your **Raider** Role!')
-    .setColor(0xff0000);
+  // Send the message
+  const send = await message.channel.send(CreateMessage('React to this message to get your **Raider** Role!'))
+
+  // Send a reaction
+  send.react('760218905808863293');
 
   let filter = (reaction, user) => true;
-
-  // Send the message
-  const send = await message.channel.send(embed)
-  send.react('760218905808863293');
   send.awaitReactions(filter, { time: 10000 }).then(collected => console.log(collected));
 };
