@@ -39,7 +39,7 @@ client.on("message", async message => {
 // Log the client in
 client.login(process.env.token);
 
-const CreateRoleMessage = (message) => {
+const CreateRoleMessage = async (message) => {
   // Create the embed message
   let embed = new Discord.MessageEmbed()
     .setDescription('React to this message to get your Raider Role!')
@@ -49,8 +49,8 @@ const CreateRoleMessage = (message) => {
 
   // Send the message
   const send = await message.channel.send(embed)
-  const reaction = send.react('760218905808863293')
-  const send.awaitReactions(filter).then(collected => {
+  send.react('760218905808863293');
+  send.awaitReactions(filter).then(collected => {
                                           collected.forEach(item => {
                                             console.log(item);
                                           });
