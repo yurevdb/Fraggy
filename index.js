@@ -48,7 +48,7 @@ const CreateRoleMessage = async (message) => {
     .setDescription('React to this message to get your Raider Role!')
     .setColor(0xff0000);
 
-  let filter = (reaction, user) => return true;
+  let filter = (reaction, user) => true;
 
   // Send the message
   const send = await message.channel.send(embed)
