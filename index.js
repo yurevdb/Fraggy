@@ -35,7 +35,11 @@ client.on("message", async message => {
       CreateRoleMessage(message);
       break;
     case "help":
-      message.channel.send(CreateMessage("Check out the wiki for any help.").setURL("https://github.com/yurevdb/Fraggy/wiki"));
+      let help = CreateMessage("Check out the wiki for any help.")
+        .setURL("https://github.com/yurevdb/Fraggy/wiki")
+        .setTitle("Help")
+        .setThumbnail("https://github.githubassets.com/images/modules/open_graph/github-octocat.png");
+      message.channel.send(help);
       break;
     default: 
       message.channel.send(`Type "${prefix} help" to see the availlable commands`);
