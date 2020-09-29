@@ -25,10 +25,7 @@ client.on("message", async message => {
   switch(command) {
     // Used for creating a get a rank feature
     case "role":
-      let embed = new Discord.MessageEmbed()
-        .setDescription('React to this message to get your Raider Role!')
-        .setColor(0xff0000);
-      message.channel.send(embed).then(answer => answer.react('760218905808863293'));
+      CreateRoleMessage(message);
       break;
     case "help":
       message.channel.send("You're on your own kid.");
@@ -41,3 +38,10 @@ client.on("message", async message => {
 
 // Log the client in
 client.login(process.env.token);
+
+const CreateRoleMessage = (message) => {
+      let embed = new Discord.MessageEmbed()
+        .setDescription('React to this message to get your Raider Role!')
+        .setColor(0xff0000);
+      message.channel.send(embed).then(answer => answer.react('760218905808863293'));
+};
