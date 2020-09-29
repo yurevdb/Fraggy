@@ -45,7 +45,7 @@ client.login(process.env.token);
 const CreateRoleMessage = async (message) => {
   // Create the embed message
   let embed = new Discord.MessageEmbed()
-    .setDescription('React to this message to get your Raider Role!')
+    .setDescription('React to this message to get your **Raider** Role!')
     .setColor(0xff0000);
 
   let filter = (reaction, user) => true;
@@ -53,5 +53,5 @@ const CreateRoleMessage = async (message) => {
   // Send the message
   const send = await message.channel.send(embed)
   send.react('760218905808863293');
-  send.awaitReactions(filter).then(collected => console.log(collected));
+  send.awaitReactions(filter, { time: 10000 }).then(collected => console.log(collected));
 };
