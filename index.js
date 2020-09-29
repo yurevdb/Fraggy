@@ -40,8 +40,20 @@ client.on("message", async message => {
 client.login(process.env.token);
 
 const CreateRoleMessage = (message) => {
-      let embed = new Discord.MessageEmbed()
-        .setDescription('React to this message to get your Raider Role!')
-        .setColor(0xff0000);
-      message.channel.send(embed).then(answer => answer.react('760218905808863293'));
+  // Create the embed message
+  let embed = new Discord.MessageEmbed()
+    .setDescription('React to this message to get your Raider Role!')
+    .setColor(0xff0000);
+
+  let filter = (reaction, user) => reaction.emoji.name === '760218905808863293'
+
+  // Send the message
+  message.channel.send(embed)
+    .then(answer => answer.react('760218905808863293'))
+    .then(answer => answer.awaitReactions(filter)
+                          .then(collected => {
+                            collected.forEach(item => {
+                              console.log(item);
+                            });
+                          }));
 };
