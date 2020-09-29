@@ -48,15 +48,10 @@ const CreateRoleMessage = async (message) => {
     .setDescription('React to this message to get your Raider Role!')
     .setColor(0xff0000);
 
-  let filter = (reaction, user) => reaction.emoji.name === 'fragments';
+  let filter = (reaction, user) => return true;
 
   // Send the message
   const send = await message.channel.send(embed)
   send.react('760218905808863293');
-  send.awaitReactions(filter).then(collected => {
-                                          console.log(collected);
-                                          for (item in collected) {
-                                            console.log(item);
-                                          }
-                                        });
+  send.awaitReactions(filter).then(collected => console.log(collected));
 };
