@@ -39,13 +39,16 @@ client.on("message", async message => {
 // Log the client in
 client.login(process.env.token);
 
+/***
+  Creates a message for any user to react to and give out a role.
+*/
 const CreateRoleMessage = async (message) => {
   // Create the embed message
   let embed = new Discord.MessageEmbed()
     .setDescription('React to this message to get your Raider Role!')
     .setColor(0xff0000);
 
-  let filter = (reaction, user) => reaction.emoji.name === '760218905808863293'
+  let filter = (reaction, user) => { console.log(reaction.emoji.name); return true } //reaction.emoji.name === '760218905808863293'
 
   // Send the message
   const send = await message.channel.send(embed)
