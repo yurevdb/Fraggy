@@ -6,7 +6,7 @@ const prefix = "-f"
 
 // On startup
 client.on("ready", () => {
-  client.user.setPresence({ activity: { name: 'to -f help', type: 'LISTENING' }, status: 'online' });
+  client.user.setPresence({ activity: { name: '-f help', type: 'LISTENING' }, status: 'online' });
 });
 
 // Receiving a message in the discord
