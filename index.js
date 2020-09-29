@@ -54,6 +54,7 @@ const CreateRoleMessage = async (message) => {
   const send = await message.channel.send(embed)
   send.react('760218905808863293');
   send.awaitReactions(filter).then(collected => {
+                                          console.log(collected);
                                           for (item in collected) {
                                             console.log(item);
                                           }
