@@ -2,8 +2,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // The prefix for the bot
-const prefix = "!frag"
+const prefix = "-f"
 
+// On startup
+client.on("ready", () => {
+  client.user.setPresence({ activity: { name: 'listening to -f help' }, status: 'online' });
+});
+
+// Receiving a message in the discord
 client.on("message", async message => {
   // Check if bot is the author
   if(message.author.bot) return
