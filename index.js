@@ -48,12 +48,11 @@ const CreateRoleMessage = (message) => {
   let filter = (reaction, user) => reaction.emoji.name === '760218905808863293'
 
   // Send the message
-  message.channel.send(embed)
-    .then(answer => answer.react('760218905808863293'))
-    .then(answer => answer.awaitReactions(filter)
-                          .then(collected => {
-                            collected.forEach(item => {
-                              console.log(item);
-                            });
-                          }));
+  const send = await message.channel.send(embed)
+  const reaction = send.react('760218905808863293')
+  const send.awaitReactions(filter).then(collected => {
+                                          collected.forEach(item => {
+                                            console.log(item);
+                                          });
+                                        });
 };
